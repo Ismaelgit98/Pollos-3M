@@ -1,0 +1,463 @@
+/* =====================================
+   ESTILOS GENERALES Y CONFIGURACIÓN
+===================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* =====================================
+   DISEÑO DEL HEADER CON EL LOGO DE POLLOS 3M
+===================================== */
+header {
+    background-color: #0b1e36; /* Azul marino del fondo del logo */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #f2a900; /* Amarillo/Dorado del contorno */
+}
+
+.header-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo-header {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #f2a900;
+    background-color: #ffffff;
+    padding: 2px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* =====================================
+   TARJETAS (CARDS) Y FORMULARIOS
+===================================== */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.card h2 {
+    color: #0b1e36;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f2a900;
+    padding-bottom: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #1f2937;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 5px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #0b1e36;
+    box-shadow: 0 0 0 3px rgba(11, 30, 54, 0.15);
+}
+
+.grupo-inline {
+    display: flex;
+    gap: 15px;
+}
+
+hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1.5px solid #e5e7eb;
+}
+
+/* BUSCADORES DESTACADOS */
+#buscarCliente, #buscarProducto {
+    border: 1.5px solid #0b1e36;
+    background-color: #f0f4ff;
+}
+
+#buscarCliente::placeholder, #buscarProducto::placeholder {
+    color: #7b93b4;
+}
+
+/* =====================================
+   BOTONES
+===================================== */
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s, transform 0.1s;
+    color: white;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#btnPedido {
+    background-color: #0b1e36;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+#btnPedido:hover {
+    background-color: #163154;
+}
+
+.btn-editar {
+    background-color: #2563eb;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    margin-left: 25px;
+}
+
+.btn-editar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-eliminar {
+    background-color: #ef4444;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    margin-left: 5px;
+}
+
+.btn-eliminar:hover {
+    background-color: #dc2626;
+}
+
+/* =====================================
+   TABLAS Y PEDIDOS REGISTRADOS
+===================================== */
+.tabla {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 1100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.tabla h2 {
+    color: #0b1e36;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f2a900;
+    padding-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background-color: #0b1e36;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9fafb;
+}
+
+/* =====================================
+   SECCIÓN REPORTES Y CONSOLIDADOS
+===================================== */
+.reportes {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 1100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.reportes h2 {
+    color: #0b1e36;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.botones {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.botones button:nth-child(1) {
+    background-color: #10b981; /* Verde Exportar */
+    flex: 1;
+}
+
+.botones button:nth-child(1):hover {
+    background-color: #059669;
+}
+
+.botones button:nth-child(2) {
+    background-color: #6b7280; /* Gris Limpiar */
+    flex: 1;
+}
+
+.botones button:nth-child(2):hover {
+    background-color: #4b5563;
+}
+
+#reporteCliente, #reporteGeneral {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+#reporteCliente h2 {
+    color: #1e293b;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+#reporteCliente h3 {
+    color: #2563eb;
+    margin-top: 10px;
+}
+
+/* =====================================
+   VENTANA MODAL (EDITAR PEDIDO)
+===================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-contenido {
+    background-color: #ffffff;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-contenido h2 {
+    color: #0b1e36;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    border-bottom: 2.5px solid #f2a900;
+    padding-bottom: 8px;
+}
+
+.modal-contenido button {
+    background-color: #0b1e36;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modal-contenido button:hover {
+    background-color: #163154;
+}
+
+.cerrar-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cerrar-modal:hover {
+    color: #374151;
+}
+
+/* =====================================
+   DISEÑO DEL FOOTER DE POLLOS 3M
+===================================== */
+footer {
+    background-color: #0b1e36; /* Azul oscuro corporativo */
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 50px;
+    border-top: 4px solid #f2a900; /* Línea dorada */
+    font-size: 0.95rem;
+}
+
+.footer-contenido p {
+    margin: 5px 0;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN (MÓVILES)
+===================================== */
+@media(max-width: 768px) {
+    .contenedor, .tabla, .reportes {
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #fcfcfc;
+    }
+    
+    td {
+        border: none;
+        border-bottom: 1px solid #f3f4f6;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    
+    td:last-child {
+        border-bottom: none;
+        text-align: center;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+    
+    td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+        color: #4b5563;
+    }
+    
+    /* Reajustado para coincidir con la tabla sin la columna Rango */
+    td:nth-of-type(1)::before { content: "Ruta"; }
+    td:nth-of-type(2)::before { content: "Cliente"; }
+    td:nth-of-type(3)::before { content: "Producto"; }
+    td:nth-of-type(4)::before { content: "Kilogramos"; }
+    td:nth-of-type(5)::before { content: "Unidades"; }
+    td:nth-of-type(6)::before { content: "Rango"; }
+    td:nth-of-type(7)::before { content: "Acción"; }
+}
+
+@media(max-width: 600px) {
+    .header-contenido {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .grupo-inline {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .botones {
+        flex-direction: column;
+    }
+}
+
+/* [MANTÉN TODOS TUS ESTILOS ANTERIORES Y AGREGA ESTO AL FINAL] */
+
+.card-mb { margin-bottom: 25px; }
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+.btn-registrar {
+    background: #10b981;
+    margin-top: 15px;
+    width: 100%;
+    color: white;
+}
+
+.btn-exportar { background-color: #2563eb !important; flex: 1; color: white; }
+.btn-limpiar { background-color: #dc2626 !important; flex: 1; color: white; }
+.btn-guardar { background-color: #0b1e36; width: 100%; color: white; }
+
+/* Asegurar consistencia en botones que tenían estilo en línea */
+.btn-registrar:hover { background: #059669; }
+

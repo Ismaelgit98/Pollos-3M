@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollos 3M - Sistema de Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-contenido">
+            <img src="/img/logo.jpeg" alt="Logo Pollos 3M" class="logo-header" onerror="this.src='logo.png'; this.onerror=function(){this.style.display='none';}">
+            <h1>Pollos 3M - Sistema de Pedidos</h1>
+        </div>
+    </header>
+
+    <div class="contenedor">
+        <section class="card card-mb">
+            <h2>Agregar Nuevo Cliente</h2>
+            <div class="grupo-inline">
+                <div class="flex-2">
+                    <label for="nuevoNombre">Nombre del Cliente</label>
+                    <input type="text" id="nuevoNombre" placeholder="Ej: CARNICERIA EJEMPLO">
+                </div>
+                <div class="flex-1">
+                    <label for="nuevoCodigo">Código (Opcional)</label>
+                    <input type="text" id="nuevoCodigo" placeholder="Ej: 101">
+                </div>
+            </div>
+            <button class="btn-registrar" onclick="agregarNuevoCliente()">+ Registrar Cliente</button>
+        </section>
+
+        <section class="card">
+            <h2>Nuevo Pedido</h2>
+            <label for="rutaSelect">Ruta de Entrega</label>
+            <select id="rutaSelect">
+                <option value="Turrialba">Turrialba</option>
+                <option value="Guapiles">Guápiles</option>
+            </select>
+           <label for="clienteInput">Cliente</label>
+<input type="text" id="clienteInput" list="listaClientes" placeholder="Escriba para buscar...">
+<datalist id="listaClientes"></datalist>
+
+<label for="productoInput">Producto</label>
+<input type="text" id="productoInput" list="listaProductos" placeholder="Escriba para buscar..." oninput="cambiarProducto()">
+<datalist id="listaProductos"></datalist>
+            <label for="tamanoSelect">Tamaño (Opcional)</label>
+            <select id="tamanoSelect">
+                <option value="">-- Sin especificar --</option>
+                <option value="Pequeño">Pequeño</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+            </select>
+            <label for="unidades">Unidades (Opcional)</label>
+            <input type="number" id="unidades" min="1" placeholder="Cantidad de unidades" oninput="calcularPesoAutomatico()">
+            <label for="kilogramos">Kilogramos Totales</label>
+            <input type="number" id="kilogramos" step="0.01" min="0.01" placeholder="Ejemplo: 10.50">
+            <button id="btnPedido" onclick="agregarPedido()">Agregar Pedido</button>
+        </section>
+    </div>
+
+    <section class="tabla">
+        <h2>Pedidos Registrados</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Cliente</th>
+                        <th>Producto</th>
+                        <th>Kilogramos</th>
+                        <th>Unidades</th>
+                        <th>Rango</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPedidos"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="reportes">
+        <div class="botones">
+            <button class="btn-exportar" onclick="exportarPDF()">Descargar reporte de pedidos</button>
+            <button onclick="exportarResumenPorRuta()">Descargar consolidado de productos</button>
+            <button class="btn-limpiar" onclick="limpiarDatos()">Limpiar Datos</button>
+
+        </div>
+        <div class="reportes-contenedor">
+            <div class="reporte-caja">
+                <h2>Reporte de pedidos por ruta</h2>
+                <div id="reporteCliente"></div>
+            </div>
+            <div class="reporte-caja">
+                <h2>Consolidado de productos por ruta</h2>
+                <div id="reporteGeneral"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalEditar" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <h2>Editar Pedido</h2>
+            <label for="editRutaSelect">Ruta</label>
+            <select id="editRutaSelect">
+                <option value="Turrialba">Turrialba</option>
+                <option value="Guapiles">Guápiles</option>
+            </select>
+           <label for="editClienteInput">Cliente</label>
+<input type="text" id="editClienteInput" list="listaClientes">
+
+<label for="editProductoInput">Producto</label>
+<input type="text" id="editProductoInput" list="listaProductos" oninput="cambiarProductoModal()">
+            <label for="editTamanoSelect">Tamaño (Opcional)</label>
+            <select id="editTamanoSelect">
+                <option value="">-- Sin especificar --</option>
+                <option value="Pequeño">Pequeño</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+            </select>
+            <label for="editUnidades">Unidades (Opcional)</label>
+            <input type="number" id="editUnidades" min="1" oninput="calcularPesoAutomaticoModal()">
+            <label for="editKilogramos">Kilogramos Totales</label>
+            <input type="number" id="editKilogramos" step="0.01" min="0.01">
+            <button class="btn-guardar" onclick="guardarCambiosPedido()">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-contenido">
+            <p>© 2026 Pollos 3M. Calidad y Frescura 100%.</p>
+            <p>📲 WhatsApp / Pedidos: 7116 4497</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
